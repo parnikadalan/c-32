@@ -45,6 +45,8 @@ function setup(){
 function draw(){
     if(bg)
     background(bg);
+    else 
+    background("black")
     textSize(20)
     text("score: "+score, width-100,50)
     Engine.update(engine);
@@ -86,6 +88,7 @@ function mouseReleased(){
 
 function keyPressed(){
     if(keyCode===32){
+        Matter.Body.setPosition(bird1.body,{x:210, y:50})
         sling.reattach(bird1.body)
         gameState = "onSling"
         bird1.trajectory = []
